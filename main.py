@@ -6,6 +6,7 @@ from processImages import process_images
 from processStream import process_stream
 from changeLabelClass import change_label_class
 from imagestomp4 import convert_images_to_mp4
+from resizeimages import resize_images_in_dir
 
 def main_menu():
     print("Welcome to YoloTraining!")
@@ -16,8 +17,9 @@ def main_menu():
     print("4. Process video stream")
     print("5. Change label class")
     print("6. Convert images to mp4")
+    print("7. Resize images and copy labels")
 
-    choice = input("Enter your choice (1-6): ")
+    choice = input("Enter your choice (1-7): ")
 
     if choice == "1":
         model_size = input("Enter model size (X/L/M/S/N or A for All, default is M): ")
@@ -43,6 +45,11 @@ def main_menu():
         video_name = input("Enter output video name (default is 'output.mp4'): ")
         fps = int(input("Enter frames per second (default is 5): "))
         convert_images_to_mp4(image_folder, video_name, fps)
+    elif choice == "7":
+        input_directory = input("Enter the input directory containing the images: ")
+        output_directory = input("Enter the output directory to save resized images: ")
+        resolutions = list(map(int, input("Enter desired widths, separated by spaces (e.g., '2560 1920 1280 854'): ").split()))
+        resize_images_in_dir(input_directory, output_directory, resolutions)
     else:
         print("Invalid choice, please enter a valid option.")
 
