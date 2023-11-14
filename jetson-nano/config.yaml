@@ -1,0 +1,18 @@
+# Configuration settings for YOLOv8 model conversion and inference
+
+# Model paths
+original_model_path: /home/jetsonuser/Vision/TensorRT_Yolov8/train3/weights/best.pt
+tensorrt_model_path: /home/jetsonuser/Vision/TensorRT_Yolov8/train3/weights/best.trt
+
+# Inference settings
+input_resolution:
+  width: 1280
+  height: 720
+webcam_index: 0
+output_dir: output
+
+# Conversion settings
+conversion:
+  dummy_input_resolution:
+    width: 1280
+    height: 720
