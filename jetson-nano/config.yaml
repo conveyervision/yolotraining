@@ -6,13 +6,16 @@ tensorrt_model_path: /home/jetsonuser/Vision/TensorRT_Yolov8/train3/weights/best
 
 # Inference settings
 input_resolution:
-  width: 1280
-  height: 720
+  width: 3840
+  height: 2160
 webcam_index: 0
 output_dir: output
 
 # Conversion settings
 conversion:
   dummy_input_resolution:
-    width: 1280
-    height: 720
+    width: 3840
+    height: 2160
+
+# Replace with your desired duration
+inference_duration_seconds: 10
